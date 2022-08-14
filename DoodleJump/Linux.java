@@ -6,8 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Ant extends Actor
+public class Linux extends Actor
 {
+    /**
+     * Son atributos del ant.
+     */
         private int speed=7;
         private int vSpeed = 0;
         private int acceleration = 2;
@@ -33,7 +36,9 @@ public class Ant extends Actor
         
         
     }
-    
+    /**
+     * revisar todos los botones de movimiento
+     */
     private void checkAllKeys(){
         if (Greenfoot.isKeyDown("left")){
             setLocation( getX()-6, getY());
@@ -53,6 +58,9 @@ public class Ant extends Actor
         }
         fire();
     }
+    /**
+     * Chequear las teclas horizontales
+     */
     private void checkHorizontalKeys(){
         if (Greenfoot.isKeyDown("right")){
             setLocation( getX()+4, getY());
@@ -67,11 +75,16 @@ public class Ant extends Actor
     
     fire();
 }    
-    
+    /**
+     * Caer como en gravedad
+     */
     public void fall(){
         setLocation( getX(), getY()+2);
         vSpeed = vSpeed+acceleration;
     }
+    /**
+     * Disparar, sirve para disparar osos de peluche
+     */
     public void fire(){
         if (Greenfoot.isKeyDown("space") && canFire==true){
             getWorld().addObject(new TeddyBears(), getX(), getY());

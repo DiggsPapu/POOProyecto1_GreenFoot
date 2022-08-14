@@ -8,18 +8,26 @@ import java.util.Random;
  */
 public class Spider extends Actor
 {
+    /**
+     * Atributos del enemigo
+     */
     Random rand = new Random();
     float velocity = 4;
+    /**
+     * Constructor de las aranias y la imagen gira 270 grados 
+     */
     public Spider(){
         setRotation(-270);
     }
     /**
-     * Act - do whatever the Spider wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Caer por gravedad
      */
     public void fall(){
         setLocation( getX(), getY());
     }
+    /**
+     * Accion para lo que realiza la arania
+     */
     public void act()
     {
         World w = getWorld();
@@ -31,8 +39,8 @@ public class Spider extends Actor
             setLocation(rand.nextInt(1100), -600);
         }
         else{
-            if (isTouching(Ant.class)){
-                removeTouching(Ant.class);
+            if (isTouching(Linux.class)){
+                removeTouching(Linux.class);
                 getWorld().addObject(new Lose(), 500, 500);
             } else if (isTouching(Surface.class)){
                 removeTouching(Surface.class);

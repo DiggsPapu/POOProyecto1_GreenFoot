@@ -8,11 +8,13 @@ import java.util.Random;
  */
 public class Surface extends Actor
 {
+    /**
+     * Atributos de la superficie
+     */
     Random rand = new Random();
     float velocity = -1;
     /**
-     * Act - do whatever the Surface wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * El acto que realiza la superficie
      */
     public void act()
     {

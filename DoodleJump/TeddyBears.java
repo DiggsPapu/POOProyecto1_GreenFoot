@@ -8,13 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TeddyBears extends Actor
 {
+    /**
+     * Constructor de las balas de peluche
+     */
     public TeddyBears(){
         setRotation(270);
         
     }
     /**
-     * Act - do whatever the TeddyBears wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Actuacion de los teddybears
      */
     public void act()
     {

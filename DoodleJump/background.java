@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class background extends World
 {
+    /**
+     * Atributos del background
+     */
     public int enemyCount = 3;
     
     public Counter counter = new Counter();
@@ -22,6 +25,9 @@ public class background extends World
         prepare();
         
     }
+    /**
+     * Para realizar las acciones del background
+     */
     public void act(){
         if (enemyCount<3){
             addEnemy();
@@ -31,12 +37,21 @@ public class background extends World
             enemyCount +=1;
         }
     }
+    /**
+     * Aniadir enemigos
+     */
     public void addEnemy(){
         addObject(new Spider(), Greenfoot.getRandomNumber(1100), -600);
     }
+    /**
+     * getter del counter
+     */
     public Counter returnCounter(){
         return counter;
     }
+    /**
+     * getter de la cantidad de enemigos
+     */
     public int getEnemyCount(){
         return enemyCount;
     }
@@ -47,7 +62,7 @@ public class background extends World
      */
     private void prepare()
     {
-        Ant ant = new Ant();
+        Linux ant = new Linux();
         addObject(ant,137,115);
         Spider spider = new Spider();
         addObject(spider,492,110);
