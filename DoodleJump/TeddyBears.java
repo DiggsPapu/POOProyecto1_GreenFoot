@@ -24,10 +24,17 @@ public class TeddyBears extends Actor
         if(isTouching(Spider.class)){
             removeTouching(Spider.class);
             World world = getWorld();
-            background wrld = (background) world;
+            Background wrld = (Background) world;
             Counter counter = wrld.returnCounter();
+            wrld.enemyCount = wrld.enemyCount -1;
             counter.addScore();
             getWorld().removeObject(this);
+        }
+        else if (isTouching(CocodrileBoss.class)){
+            World world = getWorld();
+            Background wrld = (Background) world;
+            Counter counter = wrld.returnCounter();
+            counter.addScore();
         }
         else if (isAtEdge()){
             getWorld().removeObject(this);

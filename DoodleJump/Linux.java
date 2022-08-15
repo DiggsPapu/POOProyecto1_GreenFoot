@@ -28,7 +28,7 @@ public class Linux extends Actor
                 checkAllKeys();
             }
         else if (isAtEdge()){
-             getWorld().removeObject(this);
+            getWorld().addObject(new Lose(), 500, 250);
         }
         else{
            fall(); 
@@ -53,8 +53,8 @@ public class Linux extends Actor
             
             setLocation( getX(), getY()-200);
         }else if (isAtEdge()){
-             getWorld().removeObject(this);
              getWorld().addObject(new Lose(), 500, 250);
+             
         }
         fire();
     }
@@ -70,8 +70,8 @@ public class Linux extends Actor
     }else if (Greenfoot.isKeyDown("down")){
         setLocation(getX(), getY()+4);
     }else if (isAtEdge()){
-             getWorld().addObject(new Lose(), 500, 250);
-        }
+        getWorld().addObject(new Lose(), 500, 250);
+    }
     
     fire();
 }    
