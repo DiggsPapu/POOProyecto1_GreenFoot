@@ -30,14 +30,20 @@ public class Spider extends Actor
      */
     public void act()
     {
+        //Se castea o se utiliza un surname para llamar al world.
         World w = getWorld();
         int casting = (int) velocity;
-        // Add your action code here.
+        // se castea y se mueve a cierta velocidad
         move(casting);
+        //Se pone de nuevo en el inicio en caso de que este en el borde.
         if (isAtEdge()){
-            //w.removeObject(this);
+            
             setLocation(rand.nextInt(1100), -600);
         }
+        else if (isTouching(TeddyBears.class)){
+            removeTouching(TeddyBears.class);
+        }
+        // En el caso de que toque al jugador o la superficie se elimina.
         else{
             if (isTouching(Linux.class)){
                 removeTouching(Linux.class);

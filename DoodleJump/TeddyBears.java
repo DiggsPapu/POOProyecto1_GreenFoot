@@ -20,7 +20,9 @@ public class TeddyBears extends Actor
      */
     public void act()
     {
-        move(5);
+        //Mantiene una velocidad constante 
+        move(7);
+        // Destruye las clases arania y a si mismo.
         if(isTouching(Spider.class)){
             removeTouching(Spider.class);
             World world = getWorld();
@@ -28,14 +30,15 @@ public class TeddyBears extends Actor
             Counter counter = wrld.returnCounter();
             wrld.enemyCount = wrld.enemyCount -1;
             counter.addScore();
-            getWorld().removeObject(this);
         }
+        // Si toca al cocodrilo solo aumenta el score.
         else if (isTouching(CocodrileBoss.class)){
             World world = getWorld();
             Background wrld = (Background) world;
             Counter counter = wrld.returnCounter();
             counter.addScore();
         }
+        //Se elimina el objeto si esta en el borde
         else if (isAtEdge()){
             getWorld().removeObject(this);
         }

@@ -22,6 +22,7 @@ public class Background extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
+        //llama al metodo para preparar el mundo
         prepare();
         
     }
@@ -29,21 +30,29 @@ public class Background extends World
      * Para realizar las acciones del background
      */
     public void act(){
+        // En el caso de que la cantidad de enemigos activos sea menor que 3, se add un enemigo
         if (enemyCount<3){
             addEnemy();
         }
-        
+        //En el caso de que suceda se add una superficie.
         if (Greenfoot.getRandomNumber(100)<1){
-            addSurface();
+            addSurface1();
         }
+        //En el caso de que sea menor puntaje que 111 entonces se agregan enemigos cada vez que de 0
         if(Greenfoot.getRandomNumber(500)<1 && counter.score <111){
             addEnemy();
         }
+        //En el casso de que el puntaje sea 111 se add el gefe
         else if (counter.score  == 111 ){
             addBoss();
         }
+        //Si se ha add el gefe se incrementa la velocidad con que se add enemigos.
         else if (counter.score >111 && Greenfoot.getRandomNumber(250)<1){
             addEnemy();
+        }
+        //Si pasa de los 500 entonces se incrementara la cantidad de superficies en las que puede estar
+        else if (counter.score>500 && Greenfoot.getRandomNumber(50)<1){
+            addSurface2();
         }
     }
     /**
@@ -62,9 +71,9 @@ public class Background extends World
         enemyCount +=1;
     }
     /**
-     * Aniadir superficie
+     * Aniadir superficie1
      */
-    public void addSurface(){
+    public void addSurface1(){
         addObject(new Surface(), Greenfoot.getRandomNumber(500)+600, 550);
     }
     /**
@@ -78,6 +87,12 @@ public class Background extends World
      */
     public int getEnemyCount(){
         return enemyCount;
+    }
+    /**
+     * Aniadir superficie2
+     */
+    public void addSurface2(){
+        addObject(new Surface(), Greenfoot.getRandomNumber(1000), Greenfoot.getRandomNumber(550));
     }
     
     /**

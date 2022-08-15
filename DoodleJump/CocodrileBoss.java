@@ -15,14 +15,18 @@ public class CocodrileBoss extends Actor
      */
     public void act()
     {
+        //Tira aranias
         if (Greenfoot.getRandomNumber(1000)<1) {
             shooter();
+
         }
+        // Si es tocado por los shooters y esta vivo se le resta vida y se eliminan los teddybears
         if (isTouching(TeddyBears.class) && this.health>0){
             this.health = this.health - 1;
             removeTouching(TeddyBears.class);
             
         }
+        // Si esta muerto pues se invoca una clase win
         else if (this.health<=0){
              getWorld().addObject(new Win(), 500,500);
         }

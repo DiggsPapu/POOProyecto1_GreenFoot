@@ -23,13 +23,16 @@ public class Linux extends Actor
      */
     public void act()
     {
+        //Se chequean los botones horizontales
         checkHorizontalKeys();
         if (isTouching(Surface.class)){
                 checkAllKeys();
             }
+            //Si esta en algun borde entonces pierde la partida
         else if (isAtEdge()){
             getWorld().addObject(new Lose(), 500, 250);
         }
+            //Gravedad
         else{
            fall(); 
         }
